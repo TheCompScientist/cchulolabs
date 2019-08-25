@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cchulolabs-server", "cchulolabs-server\cchulolabs-server.csproj", "{FF06F74C-FCB8-4FE8-926F-5C934C71114A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF06F74C-FCB8-4FE8-926F-5C934C71114A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF06F74C-FCB8-4FE8-926F-5C934C71114A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF06F74C-FCB8-4FE8-926F-5C934C71114A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF06F74C-FCB8-4FE8-926F-5C934C71114A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8DB4184C-34C9-4ADE-A934-D8BA77716A45}
+	EndGlobalSection
+EndGlobal
