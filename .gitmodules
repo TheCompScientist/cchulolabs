@@ -1,3 +1,0 @@
-[submodule "cchulolabs-server/cchulolabs-client"]
-	path = cchulolabs-server/cchulolabs-client
-	url = git@github.com:TheCompScientist/cchulolabs-client.git
