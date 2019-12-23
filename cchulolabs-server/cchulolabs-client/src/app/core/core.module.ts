@@ -9,6 +9,9 @@ import { AngularMaterialModule } from '../angular-material/angular-material.modu
   imports: [
     CommonModule,
     AngularMaterialModule
+  ],
+  exports: [
+    AngularMaterialModule
   ]
 })
 export class CoreModule { }
