@@ -19,7 +19,7 @@ $cchulolabs-client-accent: mat-palette($mat-pink, A200, A100, A400);
 $cchulolabs-client-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$cchulolabs-client-theme: mat-light-theme($cchulolabs-client-primary, $cchulolabs-client-accent, $cchulolabs-client-warn);
+$cchulolabs-client-theme: mat-dark-theme($cchulolabs-client-primary, $cchulolabs-client-accent, $cchulolabs-client-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -28,5 +28,16 @@ $cchulolabs-client-theme: mat-light-theme($cchulolabs-client-primary, $cchulolab
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body, app-root, .app-frame {
+    overflow: hidden;
+    margin: 0;
+    height: 100%;
+    box-sizing: border-box;
+    color: #e0e0e0
+}
+
+body {
+    margin: 0;
+    font-family: Roboto,
+    "Helvetica Neue", sans-serif;
+}
