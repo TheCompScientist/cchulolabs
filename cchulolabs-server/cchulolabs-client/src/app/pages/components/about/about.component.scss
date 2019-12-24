@@ -1,7 +1,16 @@
-p {
-    font-size: 20px;
+.about-container {
     max-width: 1280px;
-    height: 100%;
-    background: rgba(127, 127, 127, 0.8);
+    
+    background: rgba(0, 0, 0, 0.9);
     margin: auto;
+    border-radius: 16px;
+    border-style: solid;
+    border-color: white;
+    overflow: auto !important;
+}
+
+.text-wrap {
+    float: left;
+    margin: 10px;
+    width: 300px;
 }

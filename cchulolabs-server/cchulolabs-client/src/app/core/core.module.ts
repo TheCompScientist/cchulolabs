@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { RouterLinkHotfixPipe } from './pipes/router-link-hotfix.pipe';
-
+import { MarkdownModule } from 'ngx-markdown';
 
 
 @NgModule({
@@ -11,11 +11,13 @@ import { RouterLinkHotfixPipe } from './pipes/router-link-hotfix.pipe';
   ],
   imports: [
     CommonModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    MarkdownModule.forRoot()
   ],
   exports: [
     AngularMaterialModule,
-    RouterLinkHotfixPipe
+    RouterLinkHotfixPipe,
+    MarkdownModule
   ]
 })
 export class CoreModule { }
