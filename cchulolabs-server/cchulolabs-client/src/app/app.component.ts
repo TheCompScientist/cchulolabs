@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface ILink {
   label: string;
@@ -14,23 +15,25 @@ export class AppComponent {
   links: Array<ILink> = [
     {
       label: 'Home',
-      path: ''
+      path: '/'
     },
     {
       label: 'About',
-      path: 'about'
+      path: '/about'
     },
     {
       label: 'Blog',
-      path: 'blog'
+      path: '/blog'
     },
     {
       label: 'Projects',
-      path: 'projects'
+      path: '/projects'
     },
     {
       label: 'Resume',
-      path: 'resume'
+      path: '/resume'
     }
   ];
+
+  constructor(private router: Router) {}
 }
