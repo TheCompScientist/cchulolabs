@@ -6,4 +6,21 @@
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+    height: 100%;
 }
+.main {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px;
+
+    .logo {
+        width: 400px;
+    }
+
+    .link {
+        margin-right: 10px;
+        font-size: 20px;
+    }
+}
+
+

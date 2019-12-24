@@ -1,12 +1,8 @@
-<div
-  class="mat-typography app-frame mat-app-background app-background"
->
-  <div style="display: flex; justify-content: space-between; align-items: flex-start; margin: 50px;">
-    <div style="justify-items: flex-start;">
-      <img src="/assets/logo/white_logo_transparent_background_400.png" alt="cchulolabs logo" style="width: 400px;">
-    </div>
-    <div style="justify-items: flex-end;">
-      <a *ngFor="let link of links" style="margin-right: 10px; font-size: 20px;">{{ link.label }}</a>
+<div class="mat-typography app-frame mat-app-background app-background">
+  <div class="main">
+    <img class="logo" src="/assets/logo/white_logo_transparent_background_400.png" alt="cchulolabs logo">
+    <div>
+      <a class="link" *ngFor="let link of links">{{ link.label }}</a>
     </div>
   </div>
 </div>
