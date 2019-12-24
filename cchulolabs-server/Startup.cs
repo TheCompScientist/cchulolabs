@@ -37,10 +37,12 @@ namespace cchulolabs.server {
             }
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
+            if (!env.IsDevelopment()) {
+                app.UseSpaStaticFiles();
+            }
 
             app.UseRouting();
-
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
@@ -48,7 +50,6 @@ namespace cchulolabs.server {
 
             app.UseSpa(spa => {
                 spa.Options.SourcePath = "cchulolabs-client";
-                spa.Options.StartupTimeout = new TimeSpan(0, 5, 0);
 
                 if (env.IsDevelopment()) {
                     spa.UseAngularCliServer(npmScript: "start");
