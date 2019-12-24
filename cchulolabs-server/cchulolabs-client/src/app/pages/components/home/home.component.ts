@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { timer, Unsubscribable } from 'rxjs';
 import { take } from 'rxjs/operators';
 
@@ -7,7 +7,7 @@ import { take } from 'rxjs/operators';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements AfterViewInit, OnDestroy {
 
   commands = [
     'Hello world!',
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor() { }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     
     const timerInterval = 1;
 
