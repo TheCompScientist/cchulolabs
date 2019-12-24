@@ -6,6 +6,7 @@ import { BlogComponent } from './components/blog/blog.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ResumeComponent } from './components/resume/resume.component';
 import { CoreModule } from '../core/core.module';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 
 
@@ -19,7 +20,8 @@ import { CoreModule } from '../core/core.module';
   ],
   imports: [
     CommonModule,
-    CoreModule
+    CoreModule,
+    PdfViewerModule
   ],
   exports: [
     HomeComponent,
