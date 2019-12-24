@@ -8,6 +8,7 @@ import { ResumeComponent } from './components/resume/resume.component';
 import { CoreModule } from '../core/core.module';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 
+(<any>window).pdfWorkerSrc = '/pdf.worker.min.js';
 
 
 @NgModule({

@@ -7,7 +7,7 @@
           class="link"
           *ngFor="let link of links"
           [routerLink]="link.path"
-          [active]="( undefined | routerLinkHotfix:link.path:router.url:update)"
+          [active]="( undefined | routerLinkHotfix:link.path:router.url)"
         >{{ link.label }}</a>
       </nav>
       <!--  -->

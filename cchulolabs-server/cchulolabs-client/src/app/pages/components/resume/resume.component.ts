@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-resume',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResumeComponent implements OnInit {
 
+  source = '/assets/files/Carlos_Chulo_-_Software_Engineer.pdf';
+  busy = false;
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  download() {
+    try {
+      this.busy = true;
+      saveAs(this.source, 'resume.pdf');
+    } finally {
+      this.busy = false;
+    }
   }
 
 }

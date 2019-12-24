@@ -12,6 +12,7 @@ interface ILink {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   links: Array<ILink> = [
     {
       label: 'Home',
@@ -35,5 +36,5 @@ export class AppComponent {
     }
   ];
 
-  constructor(private router: Router) {}
+  constructor(public router: Router) {}
 }
