@@ -10,9 +10,10 @@
           [active]="( undefined | routerLinkHotfix:link.path:router.url)"
         >{{ link.label }}</a>
       </nav>
-      <!--  -->
     </div>
   </div>
 
-  <router-outlet></router-outlet>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
 </div>

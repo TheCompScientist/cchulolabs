@@ -21,9 +21,8 @@ $cchulolabs-client-theme: mat-dark-theme($cchulolabs-client-primary, $cchulolabs
 @include angular-material-theme($cchulolabs-client-theme);
 
 html, body, app-root, .app-frame {
-    overflow: hidden;
     margin: 0;
     height: 100%;
     width: 100%;
-    box-sizing: border-box;
+    // box-sizing: border-box;
 }

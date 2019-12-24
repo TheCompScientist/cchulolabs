@@ -7,7 +7,15 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
+
+.content {
+    flex: 1 1 auto;
+    overflow-y: auto;
+}
+
 .main {
     display: flex;
     justify-content: space-between;
