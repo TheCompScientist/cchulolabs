@@ -10,11 +10,11 @@ import { take } from 'rxjs/operators';
 export class HomeComponent implements OnInit, OnDestroy {
 
   commands = [
-    'Hello world my name is Carlos Chulo',
+    'Hello world!',
+    'My name is Carlos Chulo',
     'I am a Software Engineer',
     'I am a Computer Scientist',
     'I am a Maker',
-    'I am a Problem Solver',
     'Welcome to my page'
   ];
   cursor = '█';
@@ -24,67 +24,103 @@ export class HomeComponent implements OnInit, OnDestroy {
   commandTyped = true;
   commandIndex = -1;
   commandStringIndex = 0;
-
-  terminalTypeDelay = .025;
-  terminalCursorDelay = .5;
   
-  cursorTimerSub: Unsubscribable;
-  typeTimerSub: Unsubscribable;
+  timerSub: Unsubscribable;
 
   constructor() { }
 
   ngOnInit() {
-    const timerTypeInterval = this.terminalTypeDelay * 1000;
-    const cursorInterval = this.terminalCursorDelay * 1000;
-    const cursorTimerSource = timer(cursorInterval, cursorInterval);
+    
+    const timerInterval = 1;
 
-    const maxCursorIndex = 3;
-    let currCursorIndex = 0;
+    const cursorInterval = 100;
+    const typeSpeed = 25;
 
-    this.cursorTimerSub = cursorTimerSource.pipe(take(3)).subscribe(() => {
-      this.displayCursor();
-    })
+    let tick = -1;
+    let typing = false;
+    let cursorTicks = 0;
+    const maxCursorTicks = 10;
+    this.timerSub = timer(timerInterval, timerInterval).subscribe(() => {
 
-    // this.timerSub = timer(timerInterval, timerInterval).subscribe(() => {
+      tick = (tick + 1) % 10000;
 
-    //   if (this.commandTyped) {
-    //     this.commandIndex = (this.commandIndex + 1) % this.commands.length;
-    //     this.commandTyped = false;
-    //     this.commandStringIndex = 0;
-    //     this.command = '';
-    //   }
+      // if we are not typing, and a command has been typed, backspace it
+      if ((tick % (Math.round(typeSpeed / 2))) === 0 && !typing && this.command.length > 0) {
+        this.command = this.command.substring(0, this.command.length - 1);
+        this.commandStringIndex--;
+        this.displayCursor(true);
+        return;
+      }
 
-    //   const currCommand = this.commands[this.commandIndex];
-    //   if (!this.commandTyped) {
-    //     if (this.commandStringIndex < currCommand.length) {
-    //       const char = currCommand[this.commandStringIndex];
-    //       this.commandStringIndex++;
-    //       this.command += char;
-    //     } else {
-    //       this.commandTyped = true;
-    //       return;
-    //     }
-    //   }
+      if ((tick % cursorInterval) === 0 && !typing) {
+        
+        this.displayCursor();
 
+        if (cursorTicks === maxCursorTicks) {
+          typing = true;
+          cursorTicks = 0;
+          this.commandIndex = (this.commandIndex + 1) % this.commands.length;
+          return;
+        }
 
-    //   this.showCursor = !this.showCursor;
+        cursorTicks++;
+      }
 
-    //   if (this.showCursor) {
-    //     this.commandToShow = this.command + this.cursor;
-    //   } else {
-    //     this.commandToShow = this.command;
-    //   }
-    // });
+      if ((tick % typeSpeed) === 0 && typing) {
+        console.log(tick);
+        const currCommand = this.commands[this.commandIndex];
+        
+        if (this.commandStringIndex < currCommand.length) {
+          const char = currCommand[this.commandStringIndex];
+          this.commandStringIndex++;
+          this.command += char;
+          this.displayCursor(true);
+        }
+        
+      }
+
+      if ((tick % cursorInterval) === 0 && typing ) {
+        console.log(tick);
+        const currCommand = this.commands[this.commandIndex];
+        
+        if (this.commandStringIndex === currCommand.length) {
+          this.displayCursor();
+
+          if (cursorTicks === maxCursorTicks) {
+            typing = false;
+            cursorTicks = 0;
+            return;
+          }
+  
+          cursorTicks++;
+        }
+        
+      }
+
+      // if ((tick % cursorInterval) === 0 && typing) {
+      //   this.displayCursor();
+
+      //   if (cursorTicks === maxCursorTicks) {
+      //     typing = false;
+      //     cursorTicks = 0;
+      //     return;
+      //   }
+
+      //   cursorTicks++;
+      // }
+
+      
+    });
   }
 
   ngOnDestroy() {
-    if (this.cursorTimerSub) {
-      this.cursorTimerSub.unsubscribe();
+    if (this.timerSub) {
+      this.timerSub.unsubscribe();
     }
   }
 
-  displayCursor() {
-    this.showCursor = !this.showCursor;
+  displayCursor(force: boolean = false) {
+    this.showCursor = force || !this.showCursor;
     if (this.showCursor) {
       this.commandToShow = this.command + this.cursor;
     } else {
