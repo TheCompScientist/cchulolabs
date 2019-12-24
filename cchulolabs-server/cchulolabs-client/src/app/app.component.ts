@@ -21,14 +21,14 @@ export class AppComponent {
       label: 'About',
       path: '/about'
     },
-    {
-      label: 'Blog',
-      path: '/blog'
-    },
-    {
-      label: 'Projects',
-      path: '/projects'
-    },
+    // {
+    //   label: 'Blog',
+    //   path: '/blog'
+    // },
+    // {
+    //   label: 'Projects',
+    //   path: '/projects'
+    // },
     {
       label: 'Resume',
       path: '/resume'

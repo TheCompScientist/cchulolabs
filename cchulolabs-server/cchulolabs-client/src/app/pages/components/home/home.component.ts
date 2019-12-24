@@ -39,7 +39,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     let tick = -1;
     let typing = false;
     let cursorTicks = 0;
-    const maxCursorTicks = 10;
+    const maxCursorTicks = 5;
     this.timerSub = timer(timerInterval, timerInterval).subscribe(() => {
 
       tick = (tick + 1) % 10000;
@@ -67,7 +67,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       }
 
       if ((tick % typeSpeed) === 0 && typing) {
-        console.log(tick);
         const currCommand = this.commands[this.commandIndex];
         
         if (this.commandStringIndex < currCommand.length) {
@@ -80,7 +79,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       }
 
       if ((tick % cursorInterval) === 0 && typing ) {
-        console.log(tick);
         const currCommand = this.commands[this.commandIndex];
         
         if (this.commandStringIndex === currCommand.length) {
@@ -96,19 +94,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
         }
         
       }
-
-      // if ((tick % cursorInterval) === 0 && typing) {
-      //   this.displayCursor();
-
-      //   if (cursorTicks === maxCursorTicks) {
-      //     typing = false;
-      //     cursorTicks = 0;
-      //     return;
-      //   }
-
-      //   cursorTicks++;
-      // }
-
       
     });
   }
