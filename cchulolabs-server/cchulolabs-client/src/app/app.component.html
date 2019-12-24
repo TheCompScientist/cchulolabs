@@ -2,7 +2,16 @@
   <div class="main">
     <img class="logo" src="/assets/logo/white_logo_transparent_background_400.png" alt="cchulolabs logo">
     <div>
-      <a class="link" *ngFor="let link of links">{{ link.label }}</a>
+      <nav mat-tab-nav-bar>
+        <a mat-tab-link
+          class="link"
+          *ngFor="let link of links"
+          [routerLink]="link.path"
+          routerLinkActive #rla="routerLinkActive"
+          [active]="rla.isActive"
+        >{{ link.label }}</a>
+      </nav>
+      <!--  -->
     </div>
   </div>
 

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 interface ILink {
   label: string;
+  path: string;
 }
 
 @Component({
@@ -11,10 +12,25 @@ interface ILink {
 })
 export class AppComponent {
   links: Array<ILink> = [
-    { label: 'Home' },
-    { label: 'About' },
-    { label: 'Blog' },
-    { label: 'Projects' },
-    { label: 'Resume' }
+    {
+      label: 'Home',
+      path: ''
+    },
+    {
+      label: 'About',
+      path: 'about'
+    },
+    {
+      label: 'Blog',
+      path: 'blog'
+    },
+    {
+      label: 'Projects',
+      path: 'projects'
+    },
+    {
+      label: 'Resume',
+      path: 'resume'
+    }
   ];
 }
